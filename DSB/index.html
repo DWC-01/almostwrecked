@@ -1631,7 +1631,7 @@
 
   <footer class="page-footer">
     <p>
-      © 2025 AlmostWrecked.com · All Rights Reserved<br>
+      © 2025 AlmostWrecked.pages.dev · All Rights Reserved<br>
       Story by Kuffey A. &nbsp;|&nbsp; Guide by A.&#160;Akinlabi &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Contact</a>
     </p>
     <p style="margin-top:12px;">
@@ -1647,7 +1647,7 @@
 ============================================================ -->
 
 <script>
-  var SHEETS_URL = 'YOUR_APPS_SCRIPT_URL';
+  var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzPT-JxCgkRwHcUPFNpJdVppkx-FQGk4i0Y3hY4IgsMmpebkdCdZjsKSY3p0byIEDjdLQ/exec';
   var PAGE_REF   = 'Debt Spiral Breaker Sales Page';
 
   /* WhatsApp auto-scroll */
@@ -1757,7 +1757,7 @@
       if(!name){btn.textContent='Please fill in your name first.'; setTimeout(function(){btn.textContent='Submit Testimonial';},2000); return;}
       btn.textContent='Submitting...'; btn.disabled=true;
       fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({type:'comment',name:name,location:loc,comment:com,page:PAGE_REF})
+        body:JSON.stringify({type:'Testimonial',name:name,location:loc,comment:com,page:PAGE_REF})
       }).then(function(){
         btn.textContent='Thank you, '+name+'! We will review your experience.';
         btn.style.background='#1e8449'; form.reset();
