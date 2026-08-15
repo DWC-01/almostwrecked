@@ -1071,7 +1071,7 @@
 
     <p>I sat down and documented everything — every insight Elder Abadume had shared with me, every stage, every worksheet, every lesson I had learned the hard way.</p>
 
-    <p>Then I handed all of it to <strong>A.&#160;Akinlabi</strong> — a Systems Designer/ Author I commissioned specifically to take my raw notes, my lived experience, and my documented process, and shape it into something any man can follow on his own.</p>
+    <p>Then I handed all of it to <strong>A.&#160;Akinlabi</strong> — a systems designer/ author I commissioned specifically to take my raw notes, my lived experience, and my documented process, and shape it into something any man can follow on his own.</p>
 
     <p>The result is not a summary. Not a motivational booklet. A full working document — built from real experience, written by a professional, designed for one purpose: to give you the same fighting chance I had.</p>
 
@@ -1616,7 +1616,7 @@
   <div style="background:#0D1F2D;border-radius:10px;padding:36px 28px;margin:36px 0 0 0;">
     <div style="text-align:center;margin-bottom:24px;">
       <p style="font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Before You Go</p>
-      <h3 style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#ffffff;line-height:1.4;margin-bottom:10px;">Want a Free 4-Page Debt Reality Summary Emailed to You?</h3>
+      <h3 style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#ffffff;line-height:1.4;margin-bottom:10px;">Want the Free 4-Page Debt Reality Summary Emailed to You?</h3>
       <p style="font-family:Arial,sans-serif;font-size:14px;color:#a8b8c8;line-height:1.6;">Drop your name and email. I'll send you a condensed version of the Debt Reality Check &#8212; no spam, no pressure, just the tool that started it all for me.</p>
     </div>
     <form id="leadCaptureForm" onsubmit="submitLead(event)" style="max-width:480px;margin:0 auto;">
@@ -1717,56 +1717,221 @@
     }
   }
 
-  /* Lead capture form */
-  function submitLead(e) {
-    e.preventDefault();
-    var btn=document.getElementById('leadSubmitBtn');
-    var msg=document.getElementById('leadMsg');
-    if(btn){btn.textContent='Sending...'; btn.disabled=true;}
-    var payload={
-      type :'lead',
-      name :(document.getElementById('leadName') ||{}).value||'',
-      email:(document.getElementById('leadEmail')||{}).value||'',
-      phone:(document.getElementById('leadPhone')||{}).value||'',
-      page :PAGE_REF
-    };
-    if(window.fbq) fbq('track','Lead');
-    fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-      .then(function(){
-        if(msg){msg.style.color='#C9A84C'; msg.textContent='Done! Check your inbox shortly.';}
-        if(btn) btn.textContent='Sent!';
-        var f=document.getElementById('leadCaptureForm'); if(f) f.reset();
-      }).catch(function(){
-        if(msg){msg.style.color='#ff6b6b'; msg.textContent='Something went wrong. Try again.';}
-        if(btn){btn.textContent='Send Me the Free Summary'; btn.disabled=false;}
-      });
+ /* ============================================================
+   LEAD CAPTURE FORM
+============================================================ */
+function submitLead(e) {
+  e.preventDefault();
+
+  var btn = document.getElementById('leadSubmitBtn');
+  var msg = document.getElementById('leadMsg');
+  var form = document.getElementById('leadCaptureForm');
+
+  if (btn) {
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
   }
 
-  /* Comment form to Google Sheets */
-  (function(){
-    var form=document.querySelector('.comment-form');
-    if(!form) return;
-    var btn=form.querySelector('button');
-    if(!btn) return;
-    btn.addEventListener('click',function(){
-      var inputs=form.querySelectorAll('input');
-      var ta=form.querySelector('textarea');
-      var name=(inputs[0]?inputs[0].value:'').trim();
-      var loc =(inputs[1]?inputs[1].value:'').trim();
-      var com =(ta?ta.value:'').trim();
-      if(!name){btn.textContent='Please fill in your name first.'; setTimeout(function(){btn.textContent='Submit Testimonial';},2000); return;}
-      btn.textContent='Submitting...'; btn.disabled=true;
-      fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({type:'Testimonial',name:name,location:loc,comment:com,page:PAGE_REF})
-      }).then(function(){
-        btn.textContent='Thank you, '+name+'! We will review your experience.';
-        btn.style.background='#1e8449'; form.reset();
-      }).catch(function(){
-        btn.textContent='Error - please try again.'; btn.disabled=false;
-        setTimeout(function(){btn.textContent='Submit Testimonial'; btn.disabled=false;},2500);
-      });
+  if (msg) {
+    msg.textContent = '';
+  }
+
+  var payload = {
+    type: 'lead',
+    name: (document.getElementById('leadName') || {}).value || '',
+    email: (document.getElementById('leadEmail') || {}).value || '',
+    phone: (document.getElementById('leadPhone') || {}).value || '',
+    page: PAGE_REF
+  };
+
+  if (window.fbq) {
+    fbq('track', 'Lead');
+  }
+
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(function() {
+
+    /* Success message */
+    if (msg) {
+      msg.style.color = '#C9A84C';
+      msg.textContent = 'Done! Check your inbox shortly.';
+    }
+
+    /* Clear the form */
+    if (form) {
+      form.reset();
+    }
+
+    /* Restore button */
+    if (btn) {
+      btn.textContent = 'Send Me the Free Summary →';
+      btn.disabled = false;
+    }
+
+  })
+  .catch(function(error) {
+
+    console.error('Lead submission error:', error);
+
+    if (msg) {
+      msg.style.color = '#ff6b6b';
+      msg.textContent = 'Something went wrong. Please try again.';
+    }
+
+    if (btn) {
+      btn.textContent = 'Send Me the Free Summary →';
+      btn.disabled = false;
+    }
+
+  });
+}
+
+/* ============================================================
+   TESTIMONIAL SUBMISSION
+============================================================ */
+(function() {
+
+  var form = document.querySelector('.comment-form');
+
+  if (!form) return;
+
+  var btn = form.querySelector('button');
+
+  if (!btn) return;
+
+  btn.addEventListener('click', function() {
+
+    var inputs = form.querySelectorAll('input');
+    var ta = form.querySelector('textarea');
+
+    var name = (inputs[0] ? inputs[0].value : '').trim();
+    var loc  = (inputs[1] ? inputs[1].value : '').trim();
+    var com  = (ta ? ta.value : '').trim();
+
+
+    /* ----------------------------------------------------------
+       VALIDATE NAME
+    ---------------------------------------------------------- */
+    if (!name) {
+
+      btn.textContent = 'Please enter your name first.';
+
+      setTimeout(function() {
+        btn.textContent = 'Submit Testimonial';
+      }, 2000);
+
+      return;
+    }
+
+
+    /* ----------------------------------------------------------
+       VALIDATE TESTIMONIAL
+    ---------------------------------------------------------- */
+    if (!com) {
+
+      btn.textContent = 'Please tell us your experience.';
+
+      setTimeout(function() {
+        btn.textContent = 'Submit Testimonial';
+      }, 2000);
+
+      return;
+    }
+
+
+    /* ----------------------------------------------------------
+       DISABLE BUTTON WHILE SENDING
+    ---------------------------------------------------------- */
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+
+    /* ----------------------------------------------------------
+       BUILD PAYLOAD
+    ---------------------------------------------------------- */
+    var payload = {
+      type: 'testimonial',
+      name: name,
+      location: loc,
+      comment: com,
+      page: PAGE_REF
+    };
+
+
+    /* ----------------------------------------------------------
+       SEND TESTIMONIAL
+       ----------------------------------------------------------
+       IMPORTANT:
+       We deliberately use text/plain instead of application/json.
+       This avoids the browser's no-cors restriction on JSON
+       Content-Type while still allowing Apps Script to receive
+       and JSON.parse the request body.
+    ---------------------------------------------------------- */
+
+    fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(payload)
+    })
+
+    .then(function() {
+
+      /*
+       * With no-cors, the browser cannot inspect the actual
+       * response body from Apps Script.
+       *
+       * However, the request has completed without a network
+       * error, so we treat it as submitted.
+       */
+
+      btn.textContent =
+        'Thank you, ' + name + '! We will review your experience.';
+
+      btn.style.background = '#1e8449';
+
+      /* Clear all testimonial fields */
+      form.reset();
+
+
+      /* Restore button after 4 seconds */
+      setTimeout(function() {
+
+        btn.textContent = 'Submit Testimonial';
+        btn.style.background = '';
+        btn.disabled = false;
+
+      }, 4000);
+
+    })
+
+    .catch(function(error) {
+
+      console.error('Testimonial submission error:', error);
+
+      btn.textContent = 'Error - please try again.';
+      btn.disabled = false;
+
+      setTimeout(function() {
+
+        btn.textContent = 'Submit Testimonial';
+
+      }, 2500);
+
     });
-  })();
+
+  });
+
+})();
 
   /* CTA pixel tracking */
   document.querySelectorAll('.cta-btn').forEach(function(b){
@@ -1778,5 +1943,43 @@
   });
 </script>
 
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
