@@ -763,13 +763,350 @@
     .blog-header .blog-name { font-size: 20px !important; }
   }
 
-  .share-bar{background:#f8f9fa!important;border-top:2px solid #e8e8e8!important;border-bottom:2px solid #e8e8e8!important;padding:11px 28px!important;display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:8px!important;}
-  .share-bar .share-label{font-family:Arial,sans-serif!important;font-size:13px!important;font-weight:700!important;color:#555!important;margin-right:2px!important;white-space:nowrap!important;}
-  .share-btn{display:inline-flex!important;align-items:center!important;gap:5px!important;padding:6px 11px!important;border-radius:4px!important;font-family:Arial,sans-serif!important;font-size:13px!important;font-weight:700!important;text-decoration:none!important;cursor:pointer!important;border:none!important;color:#fff!important;white-space:nowrap!important;line-height:1.4!important;}
-  .share-btn.fb{background:#1877F2!important;}.share-btn.wa{background:#25D366!important;}.share-btn.tw{background:#000!important;}.share-btn.cp{background:#666!important;}
-  .share-count{background:rgba(255,255,255,0.25)!important;border-radius:3px!important;padding:1px 5px!important;font-size:11px!important;font-weight:700!important;}
-  .share-total{margin-left:auto!important;font-family:Arial,sans-serif!important;font-size:13px!important;color:#C9A84C!important;font-weight:700!important;white-space:nowrap!important;}
-  @media(max-width:600px){.share-bar{padding:10px 16px!important;}.share-total{margin-left:0!important;width:100%!important;margin-top:4px!important;}}
+  /* ===== SOCIAL SHARE BAR ===== */
+  .share-bar {
+    background: #f8f9fa !important;
+    border-top: 2px solid #e8e8e8 !important;
+    border-bottom: 2px solid #e8e8e8 !important;
+    padding: 11px 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .share-bar .share-label {
+    font-family: Arial, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #555 !important;
+    margin-right: 2px !important;
+    white-space: nowrap !important;
+  }
+
+  .share-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 6px 11px !important;
+    border-radius: 4px !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    border: none !important;
+    color: #fff !important;
+    white-space: nowrap !important;
+    line-height: 1.4 !important;
+  }
+
+  .share-btn.fb { background: #1877F2 !important; }
+  .share-btn.wa { background: #25D366 !important; }
+  .share-btn.tw { background: #000 !important; }
+  .share-btn.cp { background: #666 !important; }
+
+  .share-count {
+    background: rgba(255,255,255,0.25) !important;
+    border-radius: 3px !important;
+    padding: 1px 5px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+  }
+
+  .share-total {
+    margin-left: auto !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 13px !important;
+    color: #C9A84C !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+
+  /* ===== MOBILE PAGE OPTIMIZATION =====
+     Desktop layout remains unchanged. */
+  @media (max-width: 600px) {
+    .story-headline {
+      font-size: clamp(20px, 5.8vw, 22px) !important;
+      line-height: 1.18 !important;
+      letter-spacing: -0.015em !important;
+      margin-bottom: 14px !important;
+    }
+
+    .post-meta {
+      font-size: 13px !important;
+      line-height: 1.45 !important;
+    }
+
+    .price-current { font-size: 36px !important; }
+
+    .bonus-item { flex-direction: column !important; }
+
+    .bonus-img-placeholder {
+      width: 100% !important;
+      min-width: unset !important;
+      height: 70px !important;
+    }
+
+    .content-body { padding: 20px 18px !important; }
+    .headline-section { padding: 24px 18px 18px !important; }
+    .blog-header .blog-name { font-size: 20px !important; }
+
+    /* Deliberate 2×2 mobile share layout. */
+    .share-bar {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 8px !important;
+      padding: 14px 12px !important;
+      align-items: stretch !important;
+    }
+
+    .share-bar .share-label {
+      grid-column: 1 / -1 !important;
+      margin: 0 0 2px !important;
+      font-size: 13px !important;
+      line-height: 1.3 !important;
+      text-align: left !important;
+    }
+
+    .share-btn {
+      width: 100% !important;
+      min-width: 0 !important;
+      min-height: 44px !important;
+      height: 44px !important;
+      padding: 8px 6px !important;
+      gap: 4px !important;
+      border-radius: 7px !important;
+      font-size: 12px !important;
+      line-height: 1.2 !important;
+      overflow: hidden !important;
+    }
+
+    .share-btn svg {
+      width: 14px !important;
+      height: 14px !important;
+      flex: 0 0 auto !important;
+    }
+
+    .share-count {
+      font-size: 10px !important;
+      padding: 2px 4px !important;
+      flex: 0 0 auto !important;
+    }
+
+    .share-total {
+      grid-column: 1 / -1 !important;
+      width: 100% !important;
+      margin: 2px 0 0 !important;
+      padding-top: 2px !important;
+      text-align: center !important;
+      font-size: 12px !important;
+      line-height: 1.35 !important;
+    }
+
+    .share-btn:focus-visible {
+      outline: 3px solid #C9A84C !important;
+      outline-offset: 2px !important;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .headline-section {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+
+    .story-headline { font-size: 20px !important; }
+
+    .share-bar {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+      gap: 7px !important;
+    }
+
+    .share-btn {
+      font-size: 11px !important;
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+    }
+
+    .share-count {
+      font-size: 9px !important;
+      padding-left: 3px !important;
+      padding-right: 3px !important;
+    }
+  }
+
+
+  /* ===== PREMIUM RESPONSIVE LEAD MAGNET POPUP — v8 ===== */
+  html.lead-modal-open,
+  body.lead-modal-open { overflow: hidden !important; }
+
+  body.lead-modal-open {
+    position: fixed !important; width: 100% !important; left: 0 !important; right: 0 !important;
+  }
+
+  .lead-modal {
+    position: fixed !important; inset: 0 !important; z-index: 999999 !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    padding: clamp(12px, 3vw, 20px) !important; box-sizing: border-box !important;
+    background: rgba(5,14,22,0.2) !important;
+    backdrop-filter: blur(0.8px) !important; -webkit-backdrop-filter: blur(0.8px) !important;
+    animation: leadModalFadeIn .3s ease-out both !important;
+  }
+
+  .lead-modal[aria-hidden="true"] { display: none !important; }
+
+  .lead-modal-panel {
+    width: min(620px, calc(100vw - 40px)) !important; max-width: 620px !important;
+    max-height: calc(100dvh - 24px) !important;
+    box-sizing: border-box !important; container-type: inline-size !important;
+    background: #0D1F2D !important; border: 1px solid #C9A84C !important;
+    border-radius: clamp(16px, 3.55cqw, 22px) !important;
+    padding: clamp(18px, 4.52cqw, 28px) !important;
+    box-shadow: 0 30px 80px rgba(0,0,0,.52), 0 8px 28px rgba(201,168,76,.08) !important;
+    position: relative !important; display: flex !important; flex-direction: column !important;
+    justify-content: center !important; overflow: hidden !important;
+    animation: leadModalSlideUp .38s cubic-bezier(.22,1,.36,1) both !important;
+  }
+
+  .lead-modal-panel *, .lead-modal-panel *::before, .lead-modal-panel *::after {
+    box-sizing: border-box !important;
+  }
+
+  .lead-modal-badge {
+    align-self: center !important; display: inline-flex !important; align-items: center !important;
+    justify-content: center !important; width: fit-content !important;
+    padding: clamp(5px,.97cqw,6px) clamp(9px,1.94cqw,12px) !important;
+    margin: 0 auto clamp(8px,1.94cqw,12px) !important;
+    border: 1px solid rgba(201,168,76,.75) !important; border-radius: 999px !important;
+    background: rgba(201,168,76,.10) !important; color: #C9A84C !important;
+    font: 800 clamp(10px,1.78cqw,11px)/1 Arial,sans-serif !important;
+    letter-spacing: .12em !important; text-transform: none !important; white-space: nowrap !important;
+  }
+
+  .lead-modal-title {
+    width: 100% !important; margin: 0 0 clamp(8px,1.94cqw,12px) !important;
+    font-family: Georgia,serif !important; font-size: clamp(28px,6.77cqw,42px) !important;
+    font-weight: 700 !important; line-height: 1.15 !important; letter-spacing: -.02em !important;
+    color: #fff !important; text-align: center !important;
+  }
+
+  .lead-modal-copy {
+    width: 100% !important; max-width: 560px !important;
+    margin: 0 auto clamp(12px,2.9cqw,18px) !important;
+    font-family: Arial,sans-serif !important; font-size: clamp(14px,2.9cqw,18px) !important;
+    line-height: 1.4 !important; color: #c5d0da !important; text-align: center !important;
+  }
+
+  .lead-modal-form {
+    width: 100% !important; max-width: none !important; margin: 0 !important;
+    display: grid !important; grid-template-columns: 1fr !important;
+    row-gap: clamp(8px,1.94cqw,12px) !important; flex: 0 0 auto !important;
+  }
+
+  .lead-modal-form input {
+    width: 100% !important; height: clamp(44px,8.71cqw,54px) !important; min-height: 44px !important;
+    padding: clamp(9px,1.94cqw,12px) clamp(12px,2.58cqw,16px) !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+    border-radius: clamp(8px,1.61cqw,10px) !important;
+    font: clamp(14px,2.58cqw,16px)/1.2 Arial,sans-serif !important;
+    margin: 0 !important; background: #fff !important; color: #1a1a1a !important;
+    display: block !important;
+    transition: border-color .25s ease,box-shadow .25s ease !important;
+  }
+
+  .lead-modal-form input::placeholder { color: #6b6f73 !important; opacity: 1 !important; }
+
+  .lead-modal-form input:focus {
+    outline: none !important; border-color: #C9A84C !important;
+    box-shadow: 0 0 0 3px rgba(201,168,76,.18),0 0 18px rgba(201,168,76,.12) !important;
+  }
+
+  .lead-modal-form button {
+    width: 100% !important; height: clamp(46px,9.03cqw,56px) !important; min-height: 44px !important;
+    margin: clamp(1px,.32cqw,2px) 0 0 !important;
+    padding: clamp(9px,1.94cqw,12px) clamp(12px,2.58cqw,16px) !important;
+    background: #C9A84C !important; color: #0D1F2D !important;
+    font: 700 clamp(14px,2.58cqw,16px)/1.2 Georgia,serif !important;
+    border: 1px solid #C9A84C !important;
+    border-radius: clamp(8px,1.61cqw,10px) !important; cursor: pointer !important;
+    display: block !important; box-shadow: 0 8px 18px rgba(201,168,76,.18) !important;
+    transition: transform .25s ease,box-shadow .25s ease,background-color .25s ease !important;
+  }
+
+  .lead-modal-form button:hover {
+    background: #dfbf62 !important; transform: translateY(-2px) !important;
+    box-shadow: 0 12px 24px rgba(201,168,76,.24) !important;
+  }
+  .lead-modal-form button:active { transform: translateY(0) !important; }
+  .lead-modal-form button:focus-visible {
+    outline: 3px solid rgba(255,255,255,.85) !important; outline-offset: 3px !important;
+  }
+  .lead-modal-form button:disabled { opacity: .75 !important; cursor: wait !important; transform: none !important; }
+
+  .lead-modal-message {
+    width: 100% !important; margin: 0 !important; min-height: 0 !important;
+    font: clamp(12px,2.1cqw,13px)/1.3 Arial,sans-serif !important;
+    color: #c5d0da !important; text-align: center !important;
+  }
+
+  .lead-modal-note {
+    width: 100% !important; margin: clamp(8px,1.94cqw,12px) 0 0 !important;
+    font: clamp(11px,1.94cqw,12px)/1.35 Arial,sans-serif !important;
+    color: #aebdca !important; text-align: center !important;
+  }
+
+  @keyframes leadModalFadeIn { from {opacity:0} to {opacity:1} }
+  @keyframes leadModalSlideUp {
+    from {opacity:0;transform:translateY(14px) scale(.985)}
+    to {opacity:1;transform:translateY(0) scale(1)}
+  }
+
+  @media (max-height:700px) and (min-width:768px) {
+    .lead-modal-panel { padding-top:16px !important; padding-bottom:16px !important; }
+    .lead-modal-badge { margin-bottom:7px !important; }
+    .lead-modal-title { margin-bottom:7px !important; }
+    .lead-modal-copy { margin-bottom:10px !important; line-height:1.3 !important; }
+    .lead-modal-form { row-gap:7px !important; }
+    .lead-modal-form input { height:44px !important; }
+    .lead-modal-form button { height:48px !important; }
+    .lead-modal-note { margin-top:7px !important; }
+  }
+
+  @media (max-width:767px) {
+    .lead-modal { padding:12px !important; }
+    .lead-modal-panel {
+      width:92vw !important; max-width:620px !important;
+      max-height:calc(100dvh - 24px) !important;
+      padding:clamp(16px,5.1cqw,20px) !important; border-radius:18px !important;
+    }
+    .lead-modal-badge { margin-bottom:8px !important; }
+    .lead-modal-title { font-size:clamp(28px,7.2cqw,32px) !important; margin-bottom:9px !important; }
+    .lead-modal-copy { font-size:clamp(15px,3.7cqw,16px) !important; margin-bottom:13px !important; }
+    .lead-modal-form { row-gap:9px !important; }
+    .lead-modal-form input { height:50px !important; font-size:16px !important; }
+    .lead-modal-form button { height:54px !important; font-size:16px !important; }
+    .lead-modal-note { margin-top:9px !important; }
+  }
+
+  @media (max-width:767px) and (max-height:700px) {
+    .lead-modal-panel { padding-top:12px !important; padding-bottom:12px !important; }
+    .lead-modal-badge { margin-bottom:6px !important; }
+    .lead-modal-title { font-size:27px !important; margin-bottom:6px !important; }
+    .lead-modal-copy { font-size:14px !important; line-height:1.3 !important; margin-bottom:9px !important; }
+    .lead-modal-form { row-gap:6px !important; }
+    .lead-modal-form input { height:44px !important; }
+    .lead-modal-form button { height:48px !important; }
+    .lead-modal-note { font-size:11px !important; margin-top:6px !important; }
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    .lead-modal,.lead-modal-panel,.lead-modal-form input,.lead-modal-form button {
+      animation:none !important; transition:none !important;
+    }
+  }
 
 </style>
   <!-- GTM --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
@@ -799,7 +1136,7 @@
     <p class="post-meta">Published: <span>14 July 2025</span> &nbsp;|&nbsp; Posted by <span>Admin</span> &nbsp;|&nbsp; Written by Kuffey A.</p>
 
   <div class="share-bar">
-    <span class="share-label">Share:</span>
+    <span class="share-label">Share this article:</span>
     <a class="share-btn fb" href="#" onclick="doShare('facebook');return false;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
       Facebook <span class="share-count" id="fbCount">24.6K</span>
@@ -1045,7 +1382,8 @@
 
     <p>That was the moment I cried. Not from sadness. From something closer to relief so deep it hurt.</p>
 
-    <hr class="section-divider" />
+    <!-- LEAD POPUP TRIGGER: exact section divider requested by client (source line 1048) -->
+    <hr class="section-divider lead-popup-trigger" id="leadPopupTrigger" />
 
     <p>I later learned that two other men at that same dinner — a man named Biodun from Ibadan, and another called Emmanuel from Port Harcourt — had also spoken to Elder Abadume that evening and received parts of the same teaching.</p>
 
@@ -1612,23 +1950,6 @@
        FOOTER
   ============================================================ -->
   
-  <div class="content-body" style="padding-bottom:0 !important;">
-  <div style="background:#0D1F2D;border-radius:10px;padding:36px 28px;margin:36px 0 0 0;">
-    <div style="text-align:center;margin-bottom:24px;">
-      <a style="font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Before You Go</a>
-      <h3 style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#ffffff;line-height:1.4;margin-bottom:10px;">Want the Free 4-Page Debt Reality Summary Emailed to You?</h3>
-      <a style="font-family:Arial,sans-serif;font-size:14px;color:#a8b8c8;line-height:1.6;">Drop your name and email. I'll send you a condensed version of the Debt Reality Check &#8212; no spam, no pressure, just the tool that started it all for me.</a>
-    </div>
-    <form id="leadCaptureForm" onsubmit="submitLead(event)" style="max-width:480px;margin:0 auto;">
-      <input type="text" id="leadName" placeholder="Your first name" required style="width:100%;padding:12px 16px;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:15px;margin-bottom:12px;background:#fff;color:#1a1a1a;display:block;box-sizing:border-box;" />
-      <input type="email" id="leadEmail" placeholder="Your email address" required style="width:100%;padding:12px 16px;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:15px;margin-bottom:12px;background:#fff;color:#1a1a1a;display:block;box-sizing:border-box;" />
-      <input type="tel" id="leadPhone" placeholder="WhatsApp number (optional)" style="width:100%;padding:12px 16px;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:15px;margin-bottom:16px;background:#fff;color:#1a1a1a;display:block;box-sizing:border-box;" />
-      <button type="submit" id="leadSubmitBtn" style="width:100%;background:#C9A84C;color:#0D1F2D;font-family:Georgia,serif;font-size:17px;font-weight:700;padding:16px;border:none;border-radius:4px;cursor:pointer;display:block;">Send Me the Free Summary &#8594;</button>
-      <p id="leadMsg" style="font-family:Arial,sans-serif;font-size:13px;color:#a8b8c8;text-align:center;margin-top:12px;min-height:20px;"></p>
-    </form>
-  </div>
-  </div>
-
   <footer class="page-footer">
     <p>
       © 2025 AlmostWrecked.pages.dev · All Rights Reserved<br>
@@ -1643,12 +1964,48 @@
 </div><!-- end page-wrap -->
 
 <!-- ============================================================
+     MANDATORY LEAD MAGNET POPUP
+     Opens only after the reader scrolls past #leadPopupTrigger.
+     There is deliberately NO close/skip button and backdrop clicks
+     are ignored. The only in-page path out is successful submission.
+============================================================ -->
+<div id="leadMagnetModal" class="lead-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle" aria-describedby="leadModalCopy">
+  <div class="lead-modal-panel" role="document" tabindex="-1">
+    <div class="lead-modal-badge" aria-label="Free PDF">Free PDF</div>
+    <h2 id="leadModalTitle" class="lead-modal-title">Fill the form below to continue</h2>
+    <p id="leadModalCopy" class="lead-modal-copy">Drop your name and email. I'll send you a condensed version of the Debt Reality Check &#8212; no spam, no pressure, just the tool that started it all for me.</p>
+
+    <form id="leadCaptureForm" class="lead-modal-form" onsubmit="submitLead(event)">
+      <input type="text" id="leadName" name="name" placeholder="Your first name" autocomplete="given-name" required />
+      <input type="email" id="leadEmail" name="email" placeholder="Your email address" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="leadMsg" />
+      <input type="tel" id="leadPhone" name="phone" placeholder="WhatsApp number (optional)" autocomplete="tel" />
+      <button type="submit" id="leadSubmitBtn">Send Me the Free Summary &#8594;</button>
+      <p id="leadMsg" class="lead-modal-message" aria-live="polite"></p>
+      <p class="lead-modal-note"><span aria-hidden="true">🔒</span> Your email stays private.</p>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================
      JAVASCRIPT — WhatsApp auto-scroll animation only
 ============================================================ -->
 
 <script>
   var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzPT-JxCgkRwHcUPFNpJdVppkx-FQGk4i0Y3hY4IgsMmpebkdCdZjsKSY3p0byIEDjdLQ/exec';
   var PAGE_REF   = 'Debt Spiral Breaker Sales Page';
+
+  /* Clear custom email validation once the reader edits the field. */
+  (function() {
+    var emailInput = document.getElementById('leadEmail');
+    if (!emailInput) return;
+    emailInput.addEventListener('input', function() {
+      emailInput.setCustomValidity('');
+      var msg = document.getElementById('leadMsg');
+      if (msg && emailInput.value.trim()) {
+        msg.textContent = '';
+      }
+    });
+  })();
 
   /* WhatsApp auto-scroll */
   (function() {
@@ -1724,8 +2081,33 @@ function submitLead(e) {
   e.preventDefault();
 
   var btn = document.getElementById('leadSubmitBtn');
+  var emailInput = document.getElementById('leadEmail');
+  var email = emailInput ? emailInput.value.trim() : '';
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  /* Explicit email validation: reject names, phone numbers, plain text,
+     incomplete addresses, and other non-email values before submission. */
+  if (!emailPattern.test(email)) {
+    if (emailInput) {
+      emailInput.setCustomValidity('Please enter a valid email address.');
+      emailInput.reportValidity();
+      emailInput.focus();
+    }
+
+    var validationMsg = document.getElementById('leadMsg');
+    if (validationMsg) {
+      validationMsg.style.color = '#ff6b6b';
+      validationMsg.textContent = 'Please enter a valid email address.';
+    }
+    return;
+  }
+
+  if (emailInput) {
+    emailInput.setCustomValidity('');
+  }
   var msg = document.getElementById('leadMsg');
   var form = document.getElementById('leadCaptureForm');
+  var modal = document.getElementById('leadMagnetModal');
 
   if (btn) {
     btn.textContent = 'Sending...';
@@ -1733,13 +2115,14 @@ function submitLead(e) {
   }
 
   if (msg) {
+    msg.style.color = '#a8b8c8';
     msg.textContent = '';
   }
 
   var payload = {
     type: 'lead',
     name: (document.getElementById('leadName') || {}).value || '',
-    email: (document.getElementById('leadEmail') || {}).value || '',
+    email: email,
     phone: (document.getElementById('leadPhone') || {}).value || '',
     page: PAGE_REF
   };
@@ -1758,22 +2141,26 @@ function submitLead(e) {
   })
   .then(function() {
 
-    /* Success message */
     if (msg) {
       msg.style.color = '#C9A84C';
       msg.textContent = 'Done! Check your inbox shortly.';
     }
 
-    /* Clear the form */
     if (form) {
       form.reset();
     }
 
-    /* Restore button */
     if (btn) {
-      btn.textContent = 'Send Me the Free Summary →';
-      btn.disabled = false;
+      btn.textContent = 'Sent ✓';
+      btn.disabled = true;
     }
+
+    /* Permanently unlock this visit after successful submission. */
+    try { sessionStorage.setItem('dsb_lead_captured', '1'); } catch (ignore) {}
+
+    setTimeout(function() {
+      closeLeadModal();
+    }, 900);
 
   })
   .catch(function(error) {
@@ -1790,8 +2177,127 @@ function submitLead(e) {
       btn.disabled = false;
     }
 
+    /* Keep the modal open so the lead cannot bypass the form after an error. */
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'false');
+    }
   });
 }
+
+
+
+
+/* ============================================================
+   MANDATORY LEAD POPUP CONTROLLER
+   Trigger: reader has scrolled completely past the exact divider
+   marked #leadPopupTrigger (source line 1048).
+============================================================ */
+(function() {
+  var modal = document.getElementById('leadMagnetModal');
+  var panel = modal ? modal.querySelector('.lead-modal-panel') : null;
+  var trigger = document.getElementById('leadPopupTrigger');
+  var form = document.getElementById('leadCaptureForm');
+  var previousScrollY = 0;
+  var isOpen = false;
+
+  if (!modal || !panel || !trigger || !form) return;
+
+  function hasCapturedLead() {
+    try { return sessionStorage.getItem('dsb_lead_captured') === '1'; }
+    catch (ignore) { return false; }
+  }
+
+  function openLeadModal() {
+    if (isOpen || hasCapturedLead()) return;
+
+    previousScrollY = window.scrollY || window.pageYOffset || 0;
+    document.documentElement.classList.add('lead-modal-open');
+    document.body.classList.add('lead-modal-open');
+    document.body.style.top = '-' + previousScrollY + 'px';
+
+    modal.setAttribute('aria-hidden', 'false');
+    isOpen = true;
+
+    setTimeout(function() {
+      var first = document.getElementById('leadName');
+      if (first) first.focus();
+      else panel.focus();
+    }, 50);
+  }
+
+  window.closeLeadModal = function() {
+    if (!isOpen) return;
+
+    modal.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('lead-modal-open');
+    document.body.classList.remove('lead-modal-open');
+    document.body.style.top = '';
+    isOpen = false;
+    window.scrollTo(0, previousScrollY);
+  };
+
+  function triggerPassed() {
+    if (hasCapturedLead()) return false;
+    var rect = trigger.getBoundingClientRect();
+    return rect.bottom <= 0;
+  }
+
+  function checkTrigger() {
+    if (!isOpen && triggerPassed()) openLeadModal();
+  }
+
+  window.addEventListener('scroll', checkTrigger, { passive: true });
+  window.addEventListener('resize', checkTrigger);
+  window.addEventListener('pageshow', checkTrigger);
+  window.addEventListener('load', checkTrigger);
+
+  /* There is intentionally no close button. Ignore backdrop clicks. */
+  modal.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  });
+
+  /* Escape cannot dismiss the lead gate. */
+  document.addEventListener('keydown', function(event) {
+    if (!isOpen) return;
+
+    if (event.key === 'Escape' || event.key === 'Esc') {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+
+    /* Trap keyboard focus inside the form/panel. */
+    if (event.key === 'Tab') {
+      var focusable = panel.querySelectorAll('input:not([disabled]), button:not([disabled])');
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  }, true);
+
+  /* Prevent touch/wheel interaction from scrolling the page behind the gate. */
+  modal.addEventListener('wheel', function(event) {
+    if (event.target === modal) event.preventDefault();
+  }, { passive: false });
+
+  modal.addEventListener('touchmove', function(event) {
+    if (event.target === modal) event.preventDefault();
+  }, { passive: false });
+
+  /* Covers the case where the browser restores a previously scrolled position. */
+  setTimeout(checkTrigger, 250);
+})();
 
 /* ============================================================
    TESTIMONIAL SUBMISSION
