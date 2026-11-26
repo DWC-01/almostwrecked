@@ -752,6 +752,31 @@
   }
   .page-footer a { color: #C9A84C !important; }
 
+  /* ===== CONTACT + PRIVACY MODALS ===== */
+  .site-info-modal { position: fixed !important; inset: 0 !important; z-index: 10000 !important; display: none !important; align-items: center !important; justify-content: center !important; padding: 20px !important; background: rgba(13,31,45,.78) !important; backdrop-filter: blur(3px) !important; }
+  .site-info-modal.is-open { display: flex !important; }
+  .site-info-panel { position: relative !important; width: min(720px,100%) !important; max-height: min(88vh,820px) !important; overflow-y: auto !important; background: #fff !important; border: 2px solid #C9A84C !important; border-radius: 12px !important; box-shadow: 0 24px 70px rgba(0,0,0,.30) !important; padding: 34px 30px 28px !important; }
+  .site-info-close { position: absolute !important; top: 12px !important; right: 14px !important; width: 40px !important; height: 40px !important; border: 0 !important; border-radius: 50% !important; background: #0D1F2D !important; color: #fff !important; font: 700 26px/40px Arial,sans-serif !important; text-align: center !important; cursor: pointer !important; }
+  .site-info-title { margin: 0 50px 8px 0 !important; font: 700 30px/1.25 Georgia,serif !important; color: #0D1F2D !important; }
+  .site-info-updated { margin: 0 0 24px !important; font: 13px/1.6 Arial,sans-serif !important; color: #777 !important; }
+  .site-info-panel h3 { margin: 24px 0 8px !important; font: 700 19px/1.35 Georgia,serif !important; color: #0D1F2D !important; }
+  .site-info-panel p,.site-info-panel li { font: 15px/1.75 Georgia,serif !important; color: #333 !important; }
+  .site-info-panel p { margin-bottom: 14px !important; }
+  .site-info-panel ul { margin: 0 0 14px 22px !important; }
+  .site-info-panel li { margin-bottom: 5px !important; }
+  .site-info-divider { border: 0 !important; border-top: 1px solid #e7e7e7 !important; margin: 22px 0 !important; }
+  .site-info-close-bottom { display: block !important; width: 100% !important; margin-top: 26px !important; padding: 13px 18px !important; border: 0 !important; border-radius: 7px !important; background: #0D1F2D !important; color: #fff !important; font: 700 14px/1.2 Arial,sans-serif !important; cursor: pointer !important; }
+  .contact-form { display: grid !important; gap: 13px !important; margin-top: 18px !important; }
+  .contact-form label { font: 700 13px/1.4 Arial,sans-serif !important; color: #0D1F2D !important; }
+  .contact-form input,.contact-form textarea { width: 100% !important; border: 1px solid #cfd6dc !important; border-radius: 6px !important; padding: 12px 13px !important; background: #fff !important; color: #1a1a1a !important; font: 15px/1.5 Arial,sans-serif !important; }
+  .contact-form textarea { min-height: 150px !important; resize: vertical !important; }
+  .contact-form input:focus,.contact-form textarea:focus { outline: 2px solid rgba(201,168,76,.35) !important; border-color: #C9A84C !important; }
+  .contact-submit { margin-top: 5px !important; padding: 14px 18px !important; border: 0 !important; border-radius: 7px !important; background: #C9A84C !important; color: #0D1F2D !important; font: 700 14px/1.2 Arial,sans-serif !important; cursor: pointer !important; }
+  .contact-submit:disabled { opacity: .7 !important; cursor: wait !important; }
+  .contact-message { min-height: 22px !important; margin: 0 !important; font: 13px/1.5 Arial,sans-serif !important; }
+  .contact-honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; }
+  body.site-modal-open { overflow: hidden !important; }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 600px) {
     .story-headline { font-size: 22px !important; }
@@ -1132,25 +1157,25 @@
        SECTION 2 — STORY HEADLINE
   ============================================================ -->
   <div class="headline-section">
-    <h1 class="story-headline">Retired Finance Elder Reveals the 4-Step System That Helped a Broken Nigerian Man Stop Financial Bleeding, Escape a Crushing Debt Spiral, and Finally Take Back Control of His Money — Without Starving His Family</h1>
+    <h1 class="story-headline">Retired Finance Elder Reveals the 4-Step System Behind One Nigerian Man's Journey Out of a Crushing Debt Spiral — And the Practical Process He Used to Start Taking Back Control of His Money</h1>
     <p class="post-meta">Published: <span>14 July 2025</span> &nbsp;|&nbsp; Posted by <span>Admin</span> &nbsp;|&nbsp; Written by Kuffey A.</p>
 
   <div class="share-bar">
     <span class="share-label">Share this article:</span>
     <a class="share-btn fb" href="#" onclick="doShare('facebook');return false;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-      Facebook <span class="share-count" id="fbCount">24.6K</span>
+      Facebook
     </a>
     <a class="share-btn wa" href="#" onclick="doShare('whatsapp');return false;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp <span class="share-count" id="waCount">41.2K</span>
+      WhatsApp
     </a>
     <a class="share-btn tw" href="#" onclick="doShare('twitter');return false;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      X (Twitter) <span class="share-count" id="twCount">8.9K</span>
+      X (Twitter)
     </a>
     <button class="share-btn cp" onclick="copyLink()">&#128279; Copy Link</button>
-    <span class="share-total">&#128293; <span id="totalCount">74,700</span>+ shares</span>
+    <span class="share-total">Share if you found this useful</span>
   </div>
 
   </div>
@@ -1199,13 +1224,13 @@
 
     <p>You've cut back. You've sacrificed meals. You've taken on extra work until your body was begging you to stop. You've borrowed from people who now call with a different kind of voice — a voice that means something has changed between you and them forever.</p>
 
-    <p>You've tried everything the internet told you to try. Nothing has worked. And somewhere, quietly, a terrifying thought has started to take root:</p>
+    <p>You may have tried some of the usual advice already — cutting expenses, taking extra work, restructuring payments, or simply hoping the next month will be better. Sometimes those actions help. Sometimes they don't address the underlying pattern. And somewhere, quietly, a difficult thought has started to take root:</p>
 
     <p><em>What if I never get out of this?</em></p>
 
     <p>Stop.</p>
 
-    <p><strong>Drop everything you are doing now and listen to every word I'm about to say.</strong></p>
+    <p><strong>Before you keep reading, pause for a moment and look at the pattern rather than just the individual bills.</strong></p>
 
   <!-- ============================================================
        SECTION 5 — THE PROMISE
@@ -1213,7 +1238,7 @@
   </div>
 
   <div class="promise-block">
-    <p>"Because I'm about to share with you a simple, methodical system that changed everything for me — the exact same system that stopped my bleeding, broke my debt cycle, and gave me my life back."</p>
+    <p>"Because I'm about to show you the simple, methodical process I used to understand what was happening with my money — and start changing the pattern instead of simply reacting to it."</p>
   </div>
 
   <div class="content-body">
@@ -1225,9 +1250,9 @@
 
     <p>They built families on broken ground. They survived devaluations, military coups, crashes, crises. They came out the other side — not because they were lucky, but because someone passed them a method. A real one. Not a motivational quote. Not a theory.</p>
 
-    <p>A practical, working system for stopping financial bleeding and climbing out — slowly but completely.</p>
+    <p>A practical process for stopping the financial bleeding, understanding what is driving it, and working toward recovery one decision at a time.</p>
 
-    <p>This method has been quietly in use for decades. You won't hear about it from banks. You won't see it trending on Twitter. It doesn't make for a viral reel. But it works.</p>
+    <p>It isn't a secret formula or a miracle solution. It is a structured way of looking at the problem: first reveal what is actually happening, then stabilise the situation, work toward recovery, and put protections in place so the same pattern is less likely to repeat.</p>
 
     <hr class="section-divider" />
 
@@ -1235,7 +1260,7 @@
 
     <p>First thing you should know about me: I am <strong>not a financial advisor</strong>. I am not a bank executive, not a wealth coach, not someone who grew up with a trust fund or a father who left land. I'm just a regular Nigerian man who ate the dust of a financial collapse I partially brought on myself — and spent years bleeding quietly before I found a way out.</p>
 
-    <p>I share what worked for me. That's all this is — because men going through what I went through deserve real talk, not corporate advice dressed in big grammar. No polish. No pretence.</p>
+    <p>I share what I learned from my own experience. That's all this is — a practical account of what helped me move from financial confusion toward greater clarity and control. No miracle claims. No corporate language. Just the process as I understand it.</p>
 
     <p>And that is exactly why what I’m about to share matters.</p>
 
@@ -1356,7 +1381,7 @@
 
     <p><em>I was in chaos. Surely the solution had to be equally chaotic to match it?</em></p>
 
-    <p>But I was desperate. And I had nothing to lose by trying something new.</p>
+    <p>But I was desperate enough to try something different: instead of reacting to each bill as it arrived, I started by mapping the entire situation.</p>
 
     <p>He gave me his number before we parted. I called him two days later and he walked me through the full system step by step.</p>
 
@@ -1393,7 +1418,7 @@
 
     <p>These are not wealthy men. They are men like you and like me, trying to navigate a difficult country with dignity.</p>
 
-    <p>And this system works for men like us.</p>
+    <p>And this system was designed for people dealing with the kind of financial pressure I experienced.</p>
 
   </div>
 
@@ -1401,7 +1426,7 @@
        SECTION 9 — PRODUCT REVEAL
   ============================================================ -->
   <div class="content-body">
-    <p>I started getting messages. From people who heard about my situation — or former situation — and wanted to know what I had done. First it was two people. Then five. Then too many to handle individually.</p>
+    <p>As I talked about what I had learned, people began asking how they could apply the same thinking to their own situations. That made me realise that the process was worth documenting properly.</p>
 
     <p>I tried explaining the system in voice notes. In long WhatsApp messages. On phone calls at midnight. But I kept leaving things out. I kept forgetting steps. And every person's situation had slightly different details that needed the full picture to address properly.</p>
 
@@ -1411,7 +1436,7 @@
 
     <p>Then I handed all of it to <strong>A.&#160;Akinlabi</strong> — a systems designer/ author I commissioned specifically to take my raw notes, my lived experience, and my documented process, and shape it into something any man can follow on his own.</p>
 
-    <p>The result is not a summary. Not a motivational booklet. A full working document — built from real experience, written by a professional, designed for one purpose: to give you the same fighting chance I had.</p>
+    <p>The result is a practical working document — built from my experience and organised around one purpose: to give you a clearer process for examining your own financial situation and deciding what needs attention next.</p>
 
     <p><strong>Introducing...</strong></p>
   </div>
@@ -1427,7 +1452,7 @@
     />
     <div class="introducing">Introducing</div>
     <div class="product-name">The Debt Spiral Breaker™</div>
-    <div class="product-subtitle">The 4-Step System to Stop Financial Bleeding, Break the Debt Cycle, and Take Back Control of Your Money — Without Starvation Budgets or Miracle Solutions.</div>
+    <div class="product-subtitle">A practical 4-step system for understanding your debt, stopping the financial bleeding, and creating a realistic path forward.</div>
   </div>
 
   <!-- ============================================================
@@ -1439,13 +1464,13 @@
 
     <div class="inside-item">
       <div class="item-title">The Debt Reality Check</div>
-      <div class="item-desc">The exact worksheet that shows you where every naira is <em>really</em> going, so nothing can hide anymore. Most men are shocked by what surfaces on this one page alone.</div>
+      <div class="item-desc">The exact worksheet that shows you where every naira is <em>really</em> going, so nothing can hide anymore. The exercise is designed to make the numbers visible rather than leaving important details in your head.</div>
       <span class="page-ref">— Pg. 34</span>
     </div>
 
     <div class="inside-item">
       <div class="item-title">The Five Financial Leaks</div>
-      <div class="item-desc">The specific categories quietly draining most people's income — and how to identify exactly which ones are bleeding you. This is usually the first "aha" moment for readers.</div>
+      <div class="item-desc">The specific categories quietly draining most people's income — and how to identify exactly which ones are bleeding you. This section helps you identify which categories deserve closer attention.</div>
       <span class="page-ref">— Pg. 35</span>
     </div>
 
@@ -1480,138 +1505,67 @@
     </div>
 
     <div class="inside-summary">
-      "And the best part? You don't need to starve your family, work yourself into the ground, or rely on loans to repay loans. It's the same complete, methodical system that worked for me — and has since worked for over 40+ men I've quietly shared it with."
+      "The goal is not to punish yourself with an impossible budget. It is to get the situation out of your head and onto paper, understand the pattern, and begin making decisions from clarity rather than panic."
     </div>
   </div>
   </div>
 
   <!-- ============================================================
-       SECTION 12 — FIRST SET OF TESTIMONIALS
+       SECTION 12 — READER FEEDBACK
   ============================================================ -->
   <div class="content-body">
   <div class="testimonials-section">
-    <h2>Real Men. Real Testimonials.</h2>
-    <p class="testi-subtitle">What people are saying after reading The Debt Spiral Breaker™</p>
+    <h2>What Readers Can Expect</h2>
+    <p class="testi-subtitle">The system is designed around clarity, structure, and practical implementation.</p>
 
     <div class="testi-card">
       <div class="testi-header">
-        <div class="testi-avatar" style="background:#1a5276;">OA</div>
+        <div class="testi-avatar" style="background:#0D1F2D;">DB</div>
         <div class="testi-meta">
-          <div class="testi-name">Okafor Adaeze</div>
-          <div class="testi-location">🇳🇬 Lagos, Nigeria</div>
-          <div class="testi-time">3 days ago</div>
+          <div class="testi-name">The Debt Spiral Breaker™</div>
+          <div class="testi-location">A practical framework</div>
         </div>
       </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"I no go lie to you — when I first see this guide I think say na another motivational talk. But I download am, read the Reveal chapter, and e shake me. I find three leaks I never even know existed. Within the first week of Stabilise stage, e be like say somebody remove weight from my chest. This thing is real. Genuine help for real men."</p>
+      <div class="testi-text">“You don't have to pretend that your financial situation is simple. The purpose of the system is to help you see it clearly enough to decide what needs to change.”</div>
     </div>
 
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#1e8449;">CE</div>
-        <div class="testi-meta">
-          <div class="testi-name">Chukwuemeka Eze</div>
-          <div class="testi-location">🇳🇬 Abuja, Nigeria</div>
-          <div class="testi-time">1 week ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"My wife and I have been fighting about money for two years. I sha bought this guide and honestly, the Stability Budget section alone settled one major argument we had been going in circles about. We now have a shared plan. For the first time, we are on the same side of the table. The value here is not just financial — it is emotional."</p>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#6e2fa0;">TO</div>
-        <div class="testi-meta">
-          <div class="testi-name">Taiwo Olawale</div>
-          <div class="testi-location">🇳🇬 Ibadan, Nigeria</div>
-          <div class="testi-time">2 weeks ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"The payday loan trap nearly finished me. I was paying one to cover the interest on another. The Debt Spiral Breaker™ showed me exactly how to sequence my way out — the Prioritise chapter is specifically what saved me from taking yet another loan. I'm three months in. I still have debts. But I haven't added a new one since I started. That alone is a miracle for me."</p>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#ba4a00;">BA</div>
-        <div class="testi-meta">
-          <div class="testi-name">Babatunde Afolabi</div>
-          <div class="testi-location">🇳🇬 Port Harcourt, Nigeria</div>
-          <div class="testi-time">3 weeks ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Brother, I won't give you grammar. This guide is the most honest financial document I have read in Nigeria in ten years. No fluff. No big motivational talk. Just system. Step one, step two, step three, step four. My situation is not yet perfect but I know where I am. I know where I am going. That is priceless."</p>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#117a65;">EN</div>
-        <div class="testi-meta">
-          <div class="testi-name">Emeka Nwankwo</div>
-          <div class="testi-location">🇳🇬 Enugu, Nigeria</div>
-          <div class="testi-time">1 month ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"The Warning Signs chapter hit me the hardest. I could see every single warning sign — and I had been ignoring all of them for two years. The 30-Day Action Plan at the end gave me something no other resource had given me: a clear first step. Not a vision board. Not a prayer point. An actual first step. God bless you for this work, Kuffey. This is the most useful thing I have read this year."</p>
-    </div>
-
-    <div class="testi-pagination">
-      <button class="active">1</button>
-      <button>2</button>
-      <button>3</button>
-    </div>
-
-    <div class="comment-form">
-      <h3>Share Your Experience</h3>
-      <input type="text" placeholder="Your name" />
-      <input type="text" placeholder="Your city and country" />
-      <textarea placeholder="Tell us how The Debt Spiral Breaker™ helped you..."></textarea>
-      <button type="button">Submit Testimonial</button>
-    </div>
   </div>
   </div>
 
   <!-- ============================================================
-       SECTION 13 — COST JUSTIFICATION AND PRICING
+       SECTION 13 — VALUE AND PRICING
   ============================================================ -->
   <div class="content-body">
   <div class="pricing-section">
 
-    <h2>Just So You Know... Putting This Guide Together Cost Me Blood, Sweat, and the Pain of Years of Real Losses.</h2>
+    <h2>The Complete System</h2>
 
-    <p style="font-family:Georgia,serif;font-size:15px;color:#444;line-height:1.8;margin-bottom:16px;">I spent years living this problem before I could write about it. But beyond the personal cost, packaging it into something useful required real investment:</p>
+    <p style="font-family:Georgia,serif;font-size:15px;color:#444;line-height:1.8;margin-bottom:16px;">The value of the guide is not in making a dramatic promise. It is in giving you a structured process you can actually work through.</p>
 
     <ul class="cost-list">
-      <li>Multiple sessions with Elder Abadume to document the system accurately — his time is not free, and it shouldn't be.</li>
-      <li>A professional editor to make sure the language is clear, specific, and actionable — not vague or academic.</li>
-      <li>A designer to build the worksheets, trackers, and layout so the guide is actually easy to use — not just easy to read.</li>
-      <li>Testing the system with real men in real debt over real months — not hypothetical case studies, real people in Nigeria right now.</li>
-      <li>Research into Nigerian-specific debt contexts — payday loan structures, mobile money traps, family obligation pressure — that other generic money books completely ignore.</li>
+      <li>The complete Debt Spiral Breaker™ guide and four-stage framework.</li>
+      <li>Practical worksheets and planning tools for mapping your current situation.</li>
+      <li>The 30-Day Action Plan for putting the framework into practice.</li>
+      <li>Additional bonus resources included with the current offer.</li>
+      <li>A process built around real-world financial pressure rather than generic motivation.</li>
     </ul>
 
-    <p style="font-family:Georgia,serif;font-size:15px;color:#444;line-height:1.8;margin-top:16px;">This is not something I threw together in a weekend. This is something I bled into over years. And it has been tested, not theorised.</p>
+    <p style="font-family:Georgia,serif;font-size:15px;color:#444;line-height:1.8;margin-top:16px;">You are not being asked to believe that a PDF can magically erase debt. You are being offered a practical framework for understanding the situation and taking the next organised step.</p>
 
     <hr class="section-divider" />
 
     <div class="price-descent">
-      I'm not going to charge you the full cost of what went into creating this...<br>
-      I won't charge you <s>₦50,000</s>...<br>
-      I won't even charge you <s>₦30,000</s>...<br>
-      Not even <s>₦19,500</s> — which is the regular price...<br><br>
-      <strong>Because you found this page today, here is what I'm offering:</strong>
+      <strong>Current launch price:</strong>
     </div>
 
     <div class="price-box">
-      <div class="price-original">Regular Price: ₦19,500</div>
       <div class="price-current">₦7,500</div>
-      <div class="price-label">Today Only — Discounted Price for First 20 Buyers</div>
+      <div class="price-label">Current introductory price · One payment · Digital delivery</div>
     </div>
 
-    <div class="scarcity-text">
-      ⚠️ This Discounted Offer is ONLY For the FIRST 20 People Who Buy Today — Hurry!
+    <div class="scarcity-text" style="color:#0D1F2D !important;border-color:#C9A84C !important;">
+      <strong>The reason to start now isn't a countdown.</strong><br>
+      The next salary cycle, bill, or unexpected expense will not wait for the perfect time to get organised.
     </div>
   </div>
   </div>
@@ -1622,7 +1576,7 @@
   <div class="content-body">
     <div class="cta-wrap">
       <a class="cta-btn" href="https://selar.com/debtspiralbreaker?add_to_cart=1&email=&fullname=&mobile=" target="_blank" rel="noopener">
-        👉 Click Here To Get The Debt Spiral Breaker™ NOW!
+        Get The Debt Spiral Breaker™ — ₦7,500
       </a>
       <p class="cta-subtext">Secure payment via Selar · Pay by card, bank transfer, or USSD · Instant access after payment</p>
     </div>
@@ -1633,8 +1587,8 @@
   </div>
 
   <div class="bonus-section">
-    <div class="bonus-header">WAIT! I Have FREE Gifts For You...</div>
-    <div class="bonus-subheader">If you're among the FIRST 20 to buy today, you'll get ALL 7 of these bonuses alongside your package. TODAY ONLY.</div>
+    <div class="bonus-header">Included With Your Purchase</div>
+    <div class="bonus-subheader">You will receive all 7 bonus resources alongside the complete guide as part of the current offer.</div>
 
     <!-- FULL SYSTEM FLIER — shows all 7 bonuses at a glance -->
     <img
@@ -1658,7 +1612,7 @@
       <div class="bonus-details">
         <div class="bonus-badge">Bonus 2 — FREE</div>
         <div class="bonus-title">Monthly Money Leak Tracker</div>
-        <div class="bonus-desc">A month-by-month tracker to catch the specific spending patterns quietly draining your income before they compound into a crisis. Track and plug money leaks fast.</div>
+        <div class="bonus-desc">A month-by-month tracker to catch the specific spending patterns quietly draining your income before they compound into a crisis. Track the patterns so you can decide which leaks are worth addressing first.</div>
       </div>
     </div>
 
@@ -1667,7 +1621,7 @@
       <div class="bonus-details">
         <div class="bonus-badge">Bonus 3 — FREE</div>
         <div class="bonus-title">Weekly Debt Spiral Breaker™ Review</div>
-        <div class="bonus-desc">A structured weekly check-in template to keep you on track and honest — even when motivation dips and life gets complicated. Stay accountable. Stay on track.</div>
+        <div class="bonus-desc">A structured weekly check-in template to keep you on track and honest — even when motivation dips and life gets complicated. Use it as a regular checkpoint when motivation dips or circumstances change.</div>
       </div>
     </div>
 
@@ -1676,7 +1630,7 @@
       <div class="bonus-details">
         <div class="bonus-badge">Bonus 4 — FREE</div>
         <div class="bonus-title">Emergency Buffer Planner</div>
-        <div class="bonus-desc">How to build your first emergency buffer even while still in debt — so the next unexpected expense doesn't send you back to square one. Build your safety net and sleep better.</div>
+        <div class="bonus-desc">How to build your first emergency buffer even while still in debt — so the next unexpected expense doesn't send you back to square one. Use it to think through how an emergency buffer might fit into your own circumstances.</div>
       </div>
     </div>
 
@@ -1685,7 +1639,7 @@
       <div class="bonus-details">
         <div class="bonus-badge">Bonus 5 — FREE</div>
         <div class="bonus-title">The 30-Day Debt Spiral Breaker™ Checklist</div>
-        <div class="bonus-desc">Daily actions. Real progress. Break the cycle in 30 days. So you always know exactly what to do next without needing to re-read the entire guide.</div>
+        <div class="bonus-desc">A structured 30-day sequence for putting the framework into practice, so you always know what to work on next without having to re-read the entire guide.</div>
       </div>
     </div>
 
@@ -1694,7 +1648,7 @@
       <div class="bonus-details">
         <div class="bonus-badge">Bonus 6 — FREE</div>
         <div class="bonus-title">My Personal Warning Signs</div>
-        <div class="bonus-desc">Spot the danger early. Protect your progress. A personalised worksheet to identify your own specific debt triggers before they escalate into a full financial crisis again.</div>
+        <div class="bonus-desc">A personalised worksheet to identify your own debt triggers and warning signs before they become harder to manage.</div>
       </div>
     </div>
 
@@ -1703,14 +1657,14 @@
       <div class="bonus-details">
         <div class="bonus-badge">Bonus 7 — FREE</div>
         <div class="bonus-title">The Debt Spiral Breaker™ Financial Promise</div>
-        <div class="bonus-desc">Make the promise. Live the transformation. A personal commitment document — a promise you make to yourself and your family. Writing it down and signing it is the act that makes it real.</div>
+        <div class="bonus-desc">A personal commitment document to help you put into writing the financial behaviours and boundaries you want to maintain.</div>
       </div>
     </div>
 
     <div style="margin-top:24px;background:#0D1F2D;border:2px solid #C9A84C;border-radius:8px;padding:20px;text-align:center;">
       <p style="font-family:Georgia,serif;font-size:15px;color:#ffffff;margin:0;line-height:1.6;">
-        Total value of the guide + all 7 bonuses: <s style="color:#888;">₦28,500</s><br>
-        <strong style="color:#C9A84C;font-size:22px;">You Pay Just ₦7,500 — Today Only</strong>
+        The complete guide + all 7 bonuses<br>
+        <strong style="color:#C9A84C;font-size:22px;">Current price: ₦7,500</strong>
       </p>
     </div>
   </div>
@@ -1721,191 +1675,75 @@
   <div class="content-body">
     <div class="cta-wrap">
       <a class="cta-btn" href="https://selar.com/debtspiralbreaker?add_to_cart=1&email=&fullname=&mobile=" target="_blank" rel="noopener">
-        👉 Click Here To Get The Debt Spiral Breaker™ NOW! + All 7 Bonuses
+        Get The Debt Spiral Breaker™ — ₦7,500 + All 7 Bonuses
       </a>
-      <p class="cta-subtext">First 20 buyers only · Offer may close without notice · Instant digital access</p>
+      <p class="cta-subtext">One payment · Digital delivery · Instant access after successful payment</p>
     </div>
 
   <!-- ============================================================
-       SECTION 17 — WHATSAPP SALES NOTIFICATIONS
+       SECTION 17 — ILLUSTRATIVE CONVERSATION
   ============================================================ -->
-  </div>
-
   <div class="content-body">
   <div class="wa-section">
-    <h3>Others Are Already Taking Action Right Now...</h3>
+    <h3>What Taking the First Step Can Look Like</h3>
 
     <div class="wa-phone">
       <div class="wa-header">
         <div class="wa-header-avatar">DB</div>
         <div class="wa-header-info">
-          <div class="wa-header-name">📚 Debt Spiral Breaker™ Buyers</div>
-          <div class="wa-header-members">47 members · Official group</div>
+          <div class="wa-header-name">📚 Debt Spiral Breaker™</div>
         </div>
       </div>
       <div class="wa-chat">
         <div class="wa-scroll-inner" id="waScroll">
-
           <div class="wa-msg">
-            <div class="wa-sender">Chidi O.</div>
-            <div class="wa-text">Just paid! <span class="wa-paid-badge">PAID</span></div>
-            <div class="wa-time">09:14 ✓✓</div>
+            <div class="wa-sender">You</div>
+            <div class="wa-text">I know I owe money, but I honestly don't know where to start.</div>
           </div>
-
-          <div class="wa-msg">
-            <div class="wa-sender">Tunde F.</div>
-            <div class="wa-text">Payment completed. Can't wait to start 💪 <span class="wa-paid-badge">PAID</span></div>
-            <div class="wa-time">09:31 ✓✓</div>
-          </div>
-
-          <div class="wa-msg">
-            <div class="wa-sender">Emeka A.</div>
-            <div class="wa-text">Done! Bank transfer sent ✅ <span class="wa-paid-badge">PAID</span></div>
-            <div class="wa-time">10:02 ✓✓</div>
-          </div>
-
-          <div class="wa-msg">
-            <div class="wa-sender">Bello M.</div>
-            <div class="wa-text">Paid via card. God bless this guide 🙏 <span class="wa-paid-badge">PAID</span></div>
-            <div class="wa-time">10:19 ✓✓</div>
-          </div>
-
-          <div class="wa-msg">
-            <div class="wa-sender">Seun K.</div>
-            <div class="wa-text">USSD done. Let's goooo <span class="wa-paid-badge">PAID</span></div>
-            <div class="wa-time">10:47 ✓✓</div>
-          </div>
-
-          <div class="wa-msg">
-            <div class="wa-sender">Ifeanyi N.</div>
-            <div class="wa-text">Payment confirmed. My wife said thank you sef 😂 <span class="wa-paid-badge">PAID</span></div>
-            <div class="wa-time">11:03 ✓✓</div>
-          </div>
-
-          <div class="wa-msg">
-            <div class="wa-sender">Damilola R.</div>
-            <div class="wa-text">In! Finally doing something about this situation. <span class="wa-paid-badge">PAID</span></div>
-            <div class="wa-time">11:28 ✓✓</div>
-          </div>
-
           <div class="wa-msg seller">
-            <div class="wa-sender">Kuffey A. — AlmostWrecked.com</div>
-            <div class="wa-text">Amazing response today everyone. Check your email for your download link. Let's get you all to the other side 🙏</div>
-            <div class="wa-time">11:45 ✓✓</div>
+            <div class="wa-sender">The first step</div>
+            <div class="wa-text">Start by putting every income source, obligation and recurring expense in one place.</div>
           </div>
-
+          <div class="wa-msg">
+            <div class="wa-sender">Then what?</div>
+            <div class="wa-text">Look for the pressure points. Which payments are urgent? Which expenses keep repeating? Where is new debt entering the picture?</div>
+          </div>
+          <div class="wa-msg seller">
+            <div class="wa-sender">Then act</div>
+            <div class="wa-text">Once the picture is clear, you can begin making decisions from a plan instead of reacting to the next crisis.</div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="wa-urgency">
-      <strong>14 people</strong> have already taken this discount today...<br>
-      Only <strong>6 spots left</strong> at the ₦7,500 price.<br><br>
-      Bear in mind — you are not the only one viewing this page right now.
+      <strong>Don't wait for a financial emergency to force the conversation.</strong><br><br>
+      You don't have to fix everything today. You can simply start understanding the situation today.
     </div>
 
     <div class="cta-wrap" style="margin-top:24px;">
       <a class="cta-btn" href="https://selar.com/debtspiralbreaker?add_to_cart=1&email=&fullname=&mobile=" target="_blank" rel="noopener">
-        👉 Yes — Secure My Copy Before the Price Goes Back Up
+        Start With The Debt Spiral Breaker™ — ₦7,500
       </a>
     </div>
   </div>
 
   <!-- ============================================================
-       SECTION 18 — MONEY-BACK GUARANTEE
+       SECTION 18 — PURCHASE CONFIDENCE
   ============================================================ -->
   <div class="guarantee-section">
     <div class="g-icon">🛡️</div>
-    <h2>Still Feeling Unsure? I Understand Completely.</h2>
-    <p>You've been let down before. You've spent money on things that promised results and delivered nothing but more frustration. You have every right to be cautious.</p>
-    <p>Which is why I'm making you this bold, risk-free promise:</p>
-    <p><strong>Get The Debt Spiral Breaker™ today. Go through the guide. Use the templates and worksheets.</strong> Every single tool inside — the Debt Reality Check Worksheet, the Monthly Money Leak Tracker, the Weekly Review, the Emergency Buffer Planner, all of it — is yours to keep and use.</p>
-    <p>This is not a vague promise. The tools are real, functional, and ready to be put to work from day one. Your access to every template and worksheet is guaranteed — no conditions, no delays, no fine print.</p>
-    <p>You have nothing to lose. You have a way out to gain.</p>
+    <h2>Before You Decide</h2>
+    <p>You don't have to believe that this guide will solve every financial problem you have.</p>
+    <p><strong>It won't.</strong></p>
+    <p>What it can give you is a structured way to examine the problem you're facing and start working through it.</p>
+    <p>When you purchase the Debt Spiral Breaker™, you'll receive the complete guide, the four-stage framework, practical worksheets, the 30-Day Action Plan, and all included bonus materials.</p>
+    <p>If what you're looking for is a realistic framework rather than another promise of overnight financial transformation, this is what the Debt Spiral Breaker™ was designed for.</p>
 
     <div class="cta-wrap">
       <a class="cta-btn" href="https://selar.com/debtspiralbreaker?add_to_cart=1&email=&fullname=&mobile=" target="_blank" rel="noopener">
-        👉 I'm Ready — Get My Copy + All 7 Bonuses Now
+        Get The Debt Spiral Breaker™ — ₦7,500
       </a>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       SECTION 19 — SECOND TESTIMONIAL SET
-  ============================================================ -->
-  <div class="testimonials-section" style="margin-top:36px;">
-    <h2>More Men. More Results.</h2>
-    <p class="testi-subtitle">More voices from people who have used The Debt Spiral Breaker™</p>
-
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#1f618d;">KO</div>
-        <div class="testi-meta">
-          <div class="testi-name">Kehinde Ogundimu</div>
-          <div class="testi-location">🇳🇬 Lagos, Nigeria</div>
-          <div class="testi-time">5 days ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"The section on prioritising debts changed the entire way I was approaching this. I was paying random debts whenever I had small money — no logic, no strategy. This guide showed me the order. I have followed it for two months. The improvement is not dramatic, but it is consistent. And consistent is what I needed."</p>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#873600;">MU</div>
-        <div class="testi-meta">
-          <div class="testi-name">Musa Usman</div>
-          <div class="testi-location">🇳🇬 Kano, Nigeria</div>
-          <div class="testi-time">10 days ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Wallahi, I was about to take another mobile loan just to cover my Konga buy-now-pay-later. After I read the Stabilise chapter, I didn't take that loan. That single decision saved me from going deeper. This guide is for serious men who want serious help — not gimmick."</p>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#145a32;">GN</div>
-        <div class="testi-meta">
-          <div class="testi-name">Goodluck Nwosu</div>
-          <div class="testi-location">🇳🇬 Warri, Nigeria</div>
-          <div class="testi-time">2 weeks ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Guy, the Five Financial Leaks page is simply embarrassing when you first read it. Because you will see yourself on that page. I saw myself four out of five times. Four leaks. I was funding four leaks and wondering why my salary was never enough. Now I know. And knowing is the beginning."</p>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#6c3483;">PA</div>
-        <div class="testi-meta">
-          <div class="testi-name">Peter Adeyemi</div>
-          <div class="testi-location">🇳🇬 Ibadan, Nigeria</div>
-          <div class="testi-time">3 weeks ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"My in-laws were the biggest financial pressure I was facing — you know how it is. The guide doesn't pretend this problem doesn't exist. It helps you build a buffer and have the right conversations. Not cut people off. Just manage the pressure with structure. That is Nigeria-specific thinking. This is not an American money book."</p>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-header">
-        <div class="testi-avatar" style="background:#1a5276;">CI</div>
-        <div class="testi-meta">
-          <div class="testi-name">Chukwudi Igwe</div>
-          <div class="testi-location">🇳🇬 Onitsha, Nigeria</div>
-          <div class="testi-time">1 month ago</div>
-        </div>
-      </div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"I gave this to my younger brother who was sinking. He called me three weeks later just to say — 'the bleeding has stopped.' Not healed. Not perfect. But stopped. That is everything. You can't recover when you're still bleeding. This guide stops the bleeding first. Then the rest becomes possible."</p>
-    </div>
-
-    <div class="testi-pagination">
-      <button>1</button>
-      <button class="active">2</button>
-      <button>3</button>
     </div>
   </div>
 
@@ -1913,21 +1751,21 @@
        SECTION 20 — TWO-CHOICE CLOSE
   ============================================================ -->
   <div class="two-choice" style="margin-top:36px;">
-    <p style="font-family:Georgia,serif;font-size:16px;color:#333;margin-bottom:20px;line-height:1.8;">You've read this far. Which means part of you already knows this is real. Part of you already feels what's possible.</p>
+    <p style="font-family:Georgia,serif;font-size:16px;color:#333;margin-bottom:20px;line-height:1.8;">You've read this far. Maybe part of you already recognises the pattern: knowing you have debt is one thing; understanding how the whole system is working against you is another.</p>
 
-    <p style="font-family:Georgia,serif;font-size:16px;color:#333;margin-bottom:24px;line-height:1.8;">Now there are only two paths in front of you:</p>
+    <p style="font-family:Georgia,serif;font-size:16px;color:#333;margin-bottom:24px;line-height:1.8;">You don't have to solve everything today. But you can decide whether you want to keep reacting to each financial problem as it appears—or step back and examine the entire pattern.</p>
 
     <div class="choice-card choice-yes">
-      <div class="choice-label">✅ Option 1 — Take Action</div>
-      <div class="choice-text">Get The Debt Spiral Breaker™ today. Follow the four stages. Use the worksheets. Let the system do what systems are supposed to do. Watch the bleeding slow. Watch the clarity arrive. Give your wife the version of you that isn't drowning. Give your children a father who is fighting back with a plan, not just fighting.</div>
+      <div class="choice-label">✅ Take the first organised step</div>
+      <div class="choice-text">Get The Debt Spiral Breaker™, work through the four stages, and use the worksheets to put your situation in front of you. Start with clarity rather than another guess.</div>
     </div>
 
     <div class="choice-card choice-no">
-      <div class="choice-label">❌ Option 2 — Leave This Page</div>
-      <div class="choice-text">Close this tab. Go back to trying what hasn't worked. Keep borrowing to repay and repaying to borrow. Keep waking up at 3am with the same numbers in your head. Keep telling your family "soon." Maybe the next payday loan will be the last one. Maybe the next budget will stick. Maybe. Or maybe you found this page today for a reason — and walking away from it will be something you think about for a long time.</div>
+      <div class="choice-label">↩ Keep figuring it out month by month</div>
+      <div class="choice-text">You can close this page and continue handling each bill, payment and unexpected expense as it arrives. That is a choice too. The question is simply whether the pattern you're dealing with is getting easier to manage on its own.</div>
     </div>
 
-    <div class="clock-text">⏱ The clock is ticking. Only a few spots remain at ₦7,500.</div>
+    <div class="clock-text" style="color:#0D1F2D !important;">The next salary cycle is coming. The next bills are coming. <strong>You can start getting organised before they do.</strong></div>
   </div>
 
   <!-- ============================================================
@@ -1935,9 +1773,9 @@
   ============================================================ -->
   <div class="cta-wrap" style="margin-bottom:16px;">
     <a class="cta-btn" href="https://selar.com/debtspiralbreaker?add_to_cart=1&email=&fullname=&mobile=" target="_blank" rel="noopener">
-      👉 YES — Give Me The Debt Spiral Breaker™ + All 7 Bonuses for Just ₦7,500!
+      Get The Complete Debt Spiral Breaker™ + All 7 Bonuses — ₦7,500
     </a>
-    <p class="cta-subtext">Secure payment · Instant access · First 20 buyers only at this price</p>
+    <p class="cta-subtext">Secure payment · Instant digital access · One payment</p>
   </div>
 
   <p style="font-family:Georgia,serif;font-size:14px;color:#888;text-align:center;margin-bottom:36px;font-style:italic;">
@@ -1953,11 +1791,11 @@
   <footer class="page-footer">
     <p>
       © 2025 AlmostWrecked.pages.dev · All Rights Reserved<br>
-      Story by Kuffey A. &nbsp;|&nbsp; Guide by A.&#160;Akinlabi &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Contact</a>
+      Story by Kuffey A. &nbsp;|&nbsp; Guide by A.&#160;Akinlabi &nbsp;|&nbsp; <a href="#privacyModal" id="privacyPolicyLink">Privacy Policy</a> &nbsp;|&nbsp; <a href="#contactModal" id="contactLink">Contact</a>
     </p>
     <p style="margin-top:12px;">
-      This guide is for informational purposes only. Results will vary based on individual financial situations,
-      discipline, and consistency of implementation. This is not professional financial advice.
+      This guide is for informational purposes only. Individual financial situations differ, and no particular outcome is guaranteed.
+      Your results will depend on your circumstances, decisions, and implementation. This is not professional financial advice.
     </p>
   </footer>
 
@@ -1982,6 +1820,79 @@
       <button type="submit" id="leadSubmitBtn">Send Me the Free Summary &#8594;</button>
       <p id="leadMsg" class="lead-modal-message" aria-live="polite"></p>
       <p class="lead-modal-note"><span aria-hidden="true">🔒</span> Your email stays private.</p>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================
+     PRIVACY POLICY MODAL
+============================================================ -->
+<div id="privacyModal" class="site-info-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+  <div class="site-info-panel" role="document" tabindex="-1">
+    <button type="button" class="site-info-close" data-close-site-modal="privacyModal" aria-label="Close Privacy Policy">&times;</button>
+    <h2 id="privacyModalTitle" class="site-info-title">PRIVACY POLICY</h2>
+    <p class="site-info-updated"><strong>Last Updated:</strong> September 2026</p>
+    <p>Welcome to The Debt Spiral Breaker System.</p>
+    <p>Your privacy matters to us. This Privacy Policy explains, in simple terms, how information may be handled when you visit this website, interact with our pages, complete a form, or purchase or access a digital product.</p>
+    <h3>1. Information You May Provide</h3>
+    <p>Depending on how you use this website, you may voluntarily provide information such as:</p>
+    <ul><li>Your name</li><li>Email address</li><li>Information submitted through forms, quizzes, or other website features</li><li>Information necessary to process or provide access to a purchase</li></ul>
+    <p>Please avoid submitting sensitive personal information that is not specifically requested.</p>
+    <h3>2. How Information May Be Used</h3>
+    <p>Information provided through this website may be used for purposes such as:</p>
+    <ul><li>Providing requested information or resources</li><li>Delivering purchased digital products</li><li>Communicating with you about your request or purchase</li><li>Improving the website, products, and user experience</li><li>Maintaining basic website functionality and security</li></ul>
+    <p>We do not use information provided through this website for purposes unrelated to the operation of the website and its products.</p>
+    <h3>3. Your Privacy</h3>
+    <p>We respect the privacy of visitors and customers.</p>
+    <p>We do not sell, rent, or trade your personal information to third-party operators.</p>
+    <p>We do not intentionally make your personal information publicly available through this website.</p>
+    <p>Where third-party services are used to support functions such as payment processing, website hosting, analytics, email delivery, or other technical operations, those services may process information as necessary for the functions they provide and according to their own policies.</p>
+    <h3>4. Payments</h3>
+    <p>Purchases of The Debt Spiral Breaker System may be processed through an external payment platform.</p>
+    <p>Payment details such as card information or other payment credentials are handled through the applicable payment provider rather than being intentionally collected or stored directly on this landing page.</p>
+    <p>For information about how a payment provider handles payment information, please refer to that provider's own privacy policy and terms.</p>
+    <h3>5. Cookies and Technical Information</h3>
+    <p>This website or services supporting it may use cookies, pixels, analytics tools, or similar technologies for basic functionality, security, performance measurement, or understanding how visitors interact with the website.</p>
+    <p>Such technologies may collect limited technical information, such as browser type, device information, approximate location, pages visited, or referral information.</p>
+    <h3>6. Third-Party Services</h3>
+    <p>The website may contain links to or rely on third-party services, including payment platforms, email services, hosting providers, advertising platforms, or other external services.</p>
+    <p>Once you leave this website or interact directly with a third-party service, that service's own terms and privacy practices may apply.</p>
+    <p>We do not control the privacy practices of independent third-party services.</p>
+    <h3>7. Information Submitted Through Forms</h3>
+    <p>If you voluntarily submit information through a quiz, contact form, email form, or similar feature, that information may be used to provide the specific resource, report, communication, or service associated with that form.</p>
+    <p>Please do not submit information that you do not wish to share.</p>
+    <h3>8. Children's Privacy</h3>
+    <p>This website is intended for a general audience and is not specifically directed toward children.</p>
+    <h3>9. Changes to This Privacy Policy</h3>
+    <p>This Privacy Policy may be updated from time to time to reflect changes to the website, products, services, or the way information is handled.</p>
+    <p>The updated version will be made available on this page.</p>
+    <h3>10. Contact</h3>
+    <p>If you have a question about this Privacy Policy or the handling of information submitted through this website, you may contact us through the contact details provided on the website.</p>
+    <hr class="site-info-divider" />
+    <p><strong>The Debt Spiral Breaker System</strong></p>
+    <p>Your privacy matters. Your information is not sold to third-party operators.</p>
+    <button type="button" class="site-info-close-bottom" data-close-site-modal="privacyModal">Close</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONTACT MODAL
+     The recipient address is intentionally NOT present in this HTML.
+     Submission is sent to the existing backend endpoint.
+============================================================ -->
+<div id="contactModal" class="site-info-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+  <div class="site-info-panel" role="document" tabindex="-1">
+    <button type="button" class="site-info-close" data-close-site-modal="contactModal" aria-label="Close Contact Form">&times;</button>
+    <h2 id="contactModalTitle" class="site-info-title">Contact Us</h2>
+    <p class="site-info-updated">Send a message and we will get back to you.</p>
+    <form id="contactForm" class="contact-form">
+      <div><label for="contactName">Name</label><input type="text" id="contactName" name="name" autocomplete="name" required /></div>
+      <div><label for="contactEmail">Email address</label><input type="email" id="contactEmail" name="email" autocomplete="email" required /></div>
+      <div><label for="contactSubject">Subject</label><input type="text" id="contactSubject" name="subject" autocomplete="off" required /></div>
+      <div><label for="contactMessage">Message</label><textarea id="contactMessage" name="message" required></textarea></div>
+      <input class="contact-honeypot" type="text" id="contactWebsite" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button type="submit" class="contact-submit" id="contactSubmitBtn">Send Message</button>
+      <p id="contactMsg" class="contact-message" aria-live="polite"></p>
     </form>
   </div>
 </div>
@@ -2026,29 +1937,12 @@
     container.addEventListener('mouseleave', function(){ spd=0.5; });
   })();
 
-  /* Share bar counters */
-  (function() {
-    var base = { fb:24600, wa:41200, tw:8900 };
-    function getCount(k) {
-      var stored = parseInt(localStorage.getItem('dsb_'+k)||'0',10);
-      if (!sessionStorage.getItem('dsb_vis_'+k)) {
-        stored += Math.floor(Math.random()*5)+1;
-        localStorage.setItem('dsb_'+k, stored);
-        sessionStorage.setItem('dsb_vis_'+k,'1');
-      }
-      return base[k]+stored;
-    }
-    function fmt(n){ return n>=1000?(n/1000).toFixed(1)+'K':String(n); }
-    function setEl(id,v){ var el=document.getElementById(id); if(el) el.textContent=fmt(v); }
-    var fb=getCount('fb'), wa=getCount('wa'), tw=getCount('tw');
-    setEl('fbCount',fb); setEl('waCount',wa); setEl('twCount',tw);
-    setEl('totalCount',fmt(fb+wa+tw));
-  })();
+  /* Share bar counters intentionally removed: displayed share totals are not fabricated. */
 
   /* Share actions */
   function doShare(platform) {
     var url = encodeURIComponent(window.location.href);
-    var text = encodeURIComponent('The most honest financial guide I have read in Nigeria:');
+    var text = encodeURIComponent('A practical guide to understanding and working through a debt spiral:');
     var map = {
       facebook:'https://www.facebook.com/sharer/sharer.php?u='+url,
       whatsapp:'https://wa.me/?text='+text+'%20'+url,
@@ -2186,6 +2080,96 @@ function submitLead(e) {
 
 
 
+
+/* ============================================================
+   PRIVACY + CONTACT MODAL CONTROLLER
+============================================================ */
+(function() {
+  var modals = document.querySelectorAll('.site-info-modal');
+  var privacyLink = document.getElementById('privacyPolicyLink');
+  var contactLink = document.getElementById('contactLink');
+  var contactForm = document.getElementById('contactForm');
+  var contactSubmit = document.getElementById('contactSubmitBtn');
+  var contactMsg = document.getElementById('contactMsg');
+
+  function closeSiteModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    if (!document.querySelector('.site-info-modal.is-open')) document.body.classList.remove('site-modal-open');
+  }
+  function openSiteModal(modal) {
+    if (!modal) return;
+    document.querySelectorAll('.site-info-modal.is-open').forEach(function(other){ closeSiteModal(other); });
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('site-modal-open');
+    var panel=modal.querySelector('.site-info-panel');
+    if(panel){ panel.scrollTop=0; setTimeout(function(){panel.focus();},20); }
+  }
+  function bindLink(link,id) {
+    if(!link) return;
+    link.addEventListener('click',function(event){event.preventDefault();openSiteModal(document.getElementById(id));});
+  }
+  bindLink(privacyLink,'privacyModal');
+  bindLink(contactLink,'contactModal');
+
+  document.querySelectorAll('[data-close-site-modal]').forEach(function(button){
+    button.addEventListener('click',function(event){
+      event.preventDefault();
+      closeSiteModal(document.getElementById(button.getAttribute('data-close-site-modal')));
+    });
+  });
+  modals.forEach(function(modal){
+    modal.addEventListener('click',function(event){if(event.target===modal)closeSiteModal(modal);});
+  });
+  document.addEventListener('keydown',function(event){
+    if(event.key!=='Escape')return;
+    var open=document.querySelector('.site-info-modal.is-open');
+    if(open)closeSiteModal(open);
+  });
+
+  if(contactForm) contactForm.addEventListener('submit',function(event){
+    event.preventDefault();
+    var name=document.getElementById('contactName').value.trim();
+    var email=document.getElementById('contactEmail').value.trim();
+    var subject=document.getElementById('contactSubject').value.trim();
+    var message=document.getElementById('contactMessage').value.trim();
+    var website=document.getElementById('contactWebsite').value.trim();
+    var emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if(website)return;
+    if(!name||!subject||!message||!emailPattern.test(email)){
+      contactMsg.style.color='#8B0000';
+      contactMsg.textContent='Please complete all fields with a valid email address.';
+      return;
+    }
+    contactSubmit.disabled=true;
+    contactSubmit.textContent='Sending...';
+    contactMsg.style.color='#777';
+    contactMsg.textContent='';
+    var payload={type:'contact',name:name,email:email,subject:subject,message:message,page:PAGE_REF};
+    fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(){
+      contactMsg.style.color='#1e8449';
+      contactMsg.textContent='Your message has been sent. Thank you.';
+      contactForm.reset();
+      contactSubmit.textContent='Sent ✓';
+      setTimeout(function(){
+        closeSiteModal(document.getElementById('contactModal'));
+        contactSubmit.disabled=false;
+        contactSubmit.textContent='Send Message';
+        contactMsg.textContent='';
+      },1800);
+    })
+    .catch(function(error){
+      console.error('Contact submission error:',error);
+      contactMsg.style.color='#8B0000';
+      contactMsg.textContent='Something went wrong. Please try again.';
+      contactSubmit.disabled=false;
+      contactSubmit.textContent='Send Message';
+    });
+  });
+})();
 
 /* ============================================================
    MANDATORY LEAD POPUP CONTROLLER
